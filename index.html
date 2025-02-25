@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nayakwala Law Firm</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: url('pic1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(45deg, rgba(74, 44, 7, 0.9), rgba(107, 78, 30, 0.9));
+      padding: 1.5rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      border-bottom: 2px solid #d4a017;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    header:hover {
+      background: linear-gradient(45deg, rgba(74, 44, 7, 1), rgba(107, 78, 30, 1));
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+      transform: translateY(-2px);
+    }
+
+    header .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: rotate(360deg);
+    }
+
+    header h1 {
+      color: #ffd700;
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    nav {
+      margin-top: 0.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+      background: rgba(212, 160, 23, 0.2);
+      transform: scale(1.1);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+      }
+
+      .navbar-toggler {
+        display: block;
+        margin: 0 auto;
+        background: #d4a017;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        color: #fff;
+        transition: background 0.3s ease;
+      }
+
+      .navbar-toggler:hover {
+        background: #b8860b;
+      }
+
+      .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(74, 44, 7, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+        animation: slideDown 0.5s ease-in;
+      }
+
+      .navbar-collapse.show {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('gavel.jpg') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      animation: slideIn 2s ease-in;
+    }
+
+    .hero-content h2 {
+      font-size: 4.5rem;
+      margin-bottom: 1.5rem;
+      color: #ffd700;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 2rem;
+      font-style: italic;
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* Parallax Effect */
+    @media (min-width: 768px) {
+      .hero {
+        background-attachment: fixed;
+      }
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      background: rgba(74, 44, 7, 0.85);
+      margin: 2rem auto;
+      border-radius: 15px;
+      max-width: 1200px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: fadeUp 1.5s ease-in;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .profile-pic {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #d4a017;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 0 20px rgba(212, 160, 23, 0.9);
+    }
+
+    .profile-details h3 {
+      color: #ffd700;
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-details p {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose {
+      padding: 4rem 2rem;
+      background: rgba(107, 78, 30, 0.9);
+      text-align: center;
+      margin: 2rem auto;
+      border-radius: 15px;
+      max-width: 1200px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: fadeUp 2s ease-in;
+    }
+
+    .why-choose h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #ffd700;
+    }
+
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    .why-box {
+      background: #6b4e1e;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .why-box:hover {
+      transform: translateY(-10px);
+      background: #8b6e2f;
+    }
+
+    .why-box i {
+      font-size: 2.5rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+
+    .why-box h4 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-box p {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* Areas of Practice */
+    .practice {
+      padding: 4rem 2rem;
+      background: rgba(107, 78, 30, 0.9);
+      text-align: center;
+      animation: fadeUp 2s ease-in;
+    }
+
+    .practice h2 {
+      font-size: 3.5rem;
+      margin-bottom: 2.5rem;
+      color: #ffd700;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .practice-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+
+    .practice-box {
+      background: #6b4e1e;
+      padding: 2rem;
+      border-radius: 15px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .practice-box:hover {
+      transform: translateY(-10px);
+      background: #8b6e2f;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .practice-box h3 {
+      color: #ffd700;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .practice-box p {
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .practice-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .practice-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(212, 160, 23, 0.7);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 4rem 2rem;
+      background: rgba(74, 44, 7, 0.85);
+      text-align: center;
+      margin: 2rem auto;
+      border-radius: 15px;
+      max-width: 1200px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: fadeUp 2.5s ease-in;
+    }
+
+    .testimonials h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #ffd700;
+    }
+
+    .testimonial-card {
+      background: #6b4e1e;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin: 1rem 0;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      background: #8b6e2f;
+    }
+
+    .testimonial-card p {
+      color: #fff;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card .author {
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background: rgba(74, 44, 7, 0.9);
+      text-align: center;
+      animation: fadeUp 2.5s ease-in;
+    }
+
+    .contact h2 {
+      font-size: 3.5rem;
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact label {
+      color: #ffd700;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .contact input, .contact textarea {
+      padding: 1rem;
+      border: 2px solid #d4a017;
+      border-radius: 8px;
+      background: #fff;
+      color: #4a2c07;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      border-color: #b8860b;
+      box-shadow: 0 0 15px rgba(212, 160, 23, 0.6);
+      transform: scale(1.02);
+      outline: none;
+    }
+
+    .contact button {
+      padding: 1rem;
+      background: #d4a017;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #b8860b;
+      transform: scale(1.05);
+    }
+
+    #map {
+      width: 100%;
+      height: 300px;
+      border-radius: 15px;
+      margin-top: 2rem;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: #4a2c07;
+      padding: 2rem;
+      text-align: center;
+      color: #fff;
+      border-top: 2px solid #d4a017;
+      animation: fadeIn 2s ease-in;
+    }
+
+    footer p {
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      margin: 1rem 0;
+    }
+
+    .footer-links a {
+      color: #fff;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffd700;
+    }
+
+    .newsletter-form {
+      max-width: 400px;
+      margin: 1rem auto;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .newsletter-form input {
+      padding: 0.7rem;
+      border: 1px solid #d4a017;
+      border-radius: 5px;
+      background: #fff;
+      color: #4a2c07;
+    }
+
+    .newsletter-form button {
+      padding: 0.7rem 1.5rem;
+      background: #d4a017;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #b8860b;
+    }
+
+    /* Social Media Icons */
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ffd700;
+      transform: scale(1.2);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .practice-container, .why-choose-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .practice-box, .why-box {
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .contact form, .newsletter-form {
+        width: 90%;
+      }
+
+      .hero-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .contact h2, .practice h2, .testimonials h2, .why-choose h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Nayakwala Law Firm Logo" class="logo-img">
+  </div>
+  <h1 class="mt-2">Nayakwala Law Firm</h1>
+  <nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span>Menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#practice">Areas of Practice</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why-choose">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h2>Justice Served with Integrity</h2>
+    <p><em>"Justice delayed is justice denied" – William E. Gladstone</em></p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="profile-container">
+    <img src="profile-placeholder.jpg" alt="Nalini Kanta Nayak" class="profile-pic">
+    <div class="profile-details">
+      <h3>Nalini Kanta Nayak</h3>
+      <p><strong>Advocate, Odisha High Court</strong></p>
+      <p>Bhubaneswar Bar Association</p>
+      <p>Mob: 9777000620</p>
+      <p>Email: butunayakadv@gmail.com</p>
+      <p>Location: Badagada, Bhubaneswar</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="why-choose" class="why-choose">
+  <h2>Why Choose Us</h2>
+  <div class="why-choose-grid">
+    <div class="why-box">
+      <i class="fas fa-balance-scale"></i>
+      <h4>Expertise</h4>
+      <p>Decades of experience in Indian law, ensuring top-notch legal representation.</p>
+    </div>
+    <div class="why-box">
+      <i class="fas fa-handshake"></i>
+      <h4>Trust</h4>
+      <p>Building trust with clients through transparency and integrity.</p>
+    </div>
+    <div class="why-box">
+      <i class="fas fa-clock"></i>
+      <h4>Timely Justice</h4>
+      <p>Committed to delivering swift and effective legal solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Areas of Practice -->
+<section id="practice" class="practice">
+  <h2>Areas of Practice</h2>
+  <div class="practice-container">
+    <div class="practice-box">
+      <h3>Civil Law</h3>
+      <p>Expertise in property disputes, contracts, and torts, ensuring fair resolutions for our clients with meticulous attention to detail.</p>
+      <img src="civil.jpeg" alt="Civil Law" class="practice-img">
+    </div>
+    <div class="practice-box">
+      <h3>Family Law</h3>
+      <p>Specializing in divorce, child custody, and alimony cases with compassion, diligence, and a client-centered approach.</p>
+      <img src="family.jpeg" alt="Family Law" class="practice-img">
+    </div>
+    <div class="practice-box">
+      <h3>Criminal Law</h3>
+      <p>Robust defense and prosecution services for all criminal matters, upholding justice with unwavering dedication.</p>
+      <img src="criminal.jpeg" alt="Criminal Law" class="practice-img">
+    </div>
+    <div class="practice-box">
+      <h3>Corporate Law</h3>
+      <p>Advising businesses on mergers, acquisitions, and compliance with Indian laws, ensuring strategic legal support.</p>
+      <img src="corporate.webp" alt="Corporate Law" class="practice-img">
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonial-card">
+    <p>"Nayakwala Law Firm provided exceptional service during my property dispute. Highly recommended!"</p>
+    <span class="author">– Binod Mishra</span>
+  </div>
+  <div class="testimonial-card">
+    <p>"Their expertise in family law was invaluable. I felt supported every step of the way."</p>
+    <span class="author">– Soumya Mohanty</span>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form id="contact-form" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+      <div class="invalid-feedback">Please enter your name.</div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+      <div class="invalid-feedback">Please enter a valid email address.</div>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message:</label>
+      <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+      <div class="invalid-feedback">Please enter your message.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Email</button>
+  </form>
+  <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.1234567890123!2d85.8245!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190d2a2a2a2a2a!2sBadagada%2C%20Bhubaneswar!5e0!3m2!1sen!2sin!4v1677654321" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="social-icons mt-3">
+    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Nayakwala Law Firm. All rights reserved.</p>
+  <p>Contact: 9777000620 | Email: butunayakadv@gmail.com | Location: Badagada, Bhubaneswar</p>
+  <div class="footer-links">
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
+    <a href="#disclaimer">Disclaimer</a>
+  </div>
+  <form class="newsletter-form">
+    <input type="email" placeholder="Subscribe to Newsletter" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+  // Form Submission
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (name && email && message) {
+      alert(`Message sent to butunayakadv@gmail.com:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+      this.reset();
+    } else {
+      alert('Please fill in all fields.');
+    }
+  });
+
+  // Newsletter Form Submission
+  document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = this.querySelector('input').value;
+    if (email) {
+      alert(`Thank you for subscribing with email: ${email}`);
+      this.reset();
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
+
+  // Bootstrap Validation
+  (function () {
+    'use strict';
+    var forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+
+  // Scroll Animation
+  document.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('.about, .practice, .why-choose, .testimonials, .contact');
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (sectionTop < windowHeight - 100) {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  // Hover Effects for Practice Boxes
+  const practiceBoxes = document.querySelectorAll('.practice-box');
+  practiceBoxes.forEach(box => {
+    box.addEventListener('mouseenter', () => {
+      box.style.transform = 'translateY(-10px)';
+      box.style.background = '#8b6e2f';
+    });
+    box.addEventListener('mouseleave', () => {
+      box.style.transform = 'translateY(0)';
+      box.style.background = '#6b4e1e';
+    });
+  });
+
+  // Why Choose Us Hover Effects
+  const whyBoxes = document.querySelectorAll('.why-box');
+  whyBoxes.forEach(box => {
+    box.addEventListener('mouseenter', () => {
+      box.style.transform = 'translateY(-10px)';
+      box.style.background = '#8b6e2f';
+    });
+    box.addEventListener('mouseleave', () => {
+      box.style.transform = 'translateY(0)';
+      box.style.background = '#6b4e1e';
+    });
+  });
+
+  // Parallax Effect for Hero (Optional, enhance with JavaScript for smoother effect)
+  window.addEventListener('scroll', function () {
+    const hero = document.querySelector('.hero');
+    const scrollPosition = window.pageYOffset;
+    hero.style.backgroundPositionY = scrollPosition * 0.3 + 'px';
+  });
+</script>
+</body>
+</html>
